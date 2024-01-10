@@ -1,113 +1,181 @@
-import Image from 'next/image'
+import {Button} from '@nextui-org/button';
+import HomeSlider from "@/components/HomeSlider";
+import NextImage from "next/image";
+import {Card, CardBody, CardFooter, CardHeader, Image} from "@nextui-org/react";
+import {Label} from "@/components/ui/label";
+import {Separator} from "@/components/ui/separator";
+import Link from "next/link";
+import {IoFishOutline} from "react-icons/io5";
+import {MdOutlineHandshake} from "react-icons/md";
+import {BsBox2Heart} from "react-icons/bs";
+import {RiSecurePaymentLine} from "react-icons/ri";
+import HomepageButtonShop from "@/components/HomepageButtonShop";
+import ProductsGrid from "@/components/ProductsGrid";
+import DealOfDay from "@/components/DealOfDay";
+
+const images = [
+    "/images/slide.png",
+    "/images/slide.png",
+    "/images/slide.png",
+];
+
+const certifications = [
+    "/images/haccp.png",
+    "/images/gmp.png",
+    "/images/iso.png",
+    "/images/halal.png",
+]
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    return (
+        <div>
+            <div className="flex flex-row space-x-2 my-4 px-4">
+                <Card className="w-1/3 h-full">
+                    <CardBody className="flex flex-col space-y-2">
+                        <Label className="text-base font-bold w-full text-center">Categories</Label>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Salt Water Fish</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Fresh Water Fish</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Preserved Fish</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Fish Fillets</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Shellfish</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Whole Fish</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Seafood Blends and Mixes</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Specialty Seafood</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Organic and Sustainable
+                            Options</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Breaded and Ready-to-Cook</Label></Link>
+                        <Separator/>
+                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
+                            <IoFishOutline/> <Label className="cursor-pointer">Global Seafood Selection</Label></Link>
+                    </CardBody>
+                </Card>
+                <Card className="w-full p-0 h-[400px]">
+                    <HomeSlider loop>
+                        {images.map((src, i) => {
+                            return (
+                                // 👇 style each individual slide.
+                                // relative - needed since we use the fill prop from next/image component
+                                // h-64 - arbitrary height
+                                // flex[0_0_100%]
+                                //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
+                                //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
+                                <div className="relative h-[400px] flex-[0_0_100%]" key={i}>
+                                    {/* use object-cover + fill since we don't know the height and width of the parent */}
+                                    <NextImage src={src} fill className="object-cover" alt="alt" priority={false}/>
+                                </div>
+                            );
+                        })}
+                    </HomeSlider>
+                </Card>
+
+            </div>
+            <div className="flex flex-row space-x-6 p-6 mt-16">
+                <Card
+                    className="w-full aspect-video bg-green-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
+                    <CardBody className="flex flex-col items-center justify-center h-full">
+                        <MdOutlineHandshake className="w-14 h-14" color="red"/>
+                        <Label className="text-lg font-bold mt-2 pointer-none">Cash on delivery</Label>
+                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Seal the Deal, Pay with
+                            Ease – Cash on Delivery, Where Convenience Meets Confidence!</Label>
+                    </CardBody>
+                </Card>
+                <Card
+                    className="w-full aspect-video bg-orange-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
+                    <CardBody className="flex flex-col items-center justify-center h-full">
+                        <BsBox2Heart className="w-14 h-14" color="red"/>
+                        <Label className="text-lg font-bold mt-2 pointer-none">Secure payment</Label>
+                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Unlock Peace of Mind:
+                            Your Transactions, Our Fort Knox – Secure Payments, Seamless Confidence.</Label>
+
+                    </CardBody>
+                </Card>
+                <Card
+                    className="w-full aspect-video bg-purple-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
+                    <CardBody className="flex flex-col items-center justify-center h-full">
+                        <RiSecurePaymentLine className="w-14 h-14" color="red"/>
+                        <Label className="text-lg font-bold mt-2 pointer-none">Delivery on time</Label>
+                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Prompt Precision, Swift
+                            Satisfaction – Delivering On Time, Every Time.</Label>
+
+                    </CardBody>
+                </Card>
+            </div>
+            <div className="mt-24 flex flex-row space-x-6 p-6">
+                <div className="w-1/2 flex flex-row justify-center space-x-16">
+                    <div className="flex flex-col relative w-full items-center justify-center">
+                        <Image
+                            isBlurred
+                            src={"/images/homepage.jpg"}
+                            alt="Chhuya Frozen Foods Ltd"
+                            className="object-cover aspect-video h-[500px] mb-16"
+                        />
+                    </div>
+                    <div className="flex flex-col relative w-full items-center justify-center">
+                        <Image
+                            isBlurred
+                            src={"/images/homepage.jpeg"}
+                            alt="Chhuya Frozen Foods Ltd"
+                            className="object-cover aspect-video h-[500px] mt-16"
+                        />
+                    </div>
+                    {/*<NextImage src={"/images/homepage.jpg"} alt="logo" height={200} width={200}
+                               className="object-cover mb-16"/>
+                    <NextImage src={"/images/homepage.jpeg"} alt="logo" height={200} width={200}
+                               className="object-cover mt-16"/>*/}
+                </div>
+                <HomepageButtonShop/>
+            </div>
+            <div className="flex flex-col mb-6 mt-24 items-center">
+                <Label className="text-2xl font-semibold">Our Best Seller</Label>
+                <Separator className="w-[150px] bg-green-700 h-[2px] my-4"/>
+                <div className="grid grid-cols-5 gap-4 p-4">
+                    <ProductsGrid variant={"lg"}/>
+                </div>
+            </div>
+            <div className="flex flex-col mb-24 items-center">
+                <Label className="text-2xl font-semibold">Deals of The Day</Label>
+                <Separator className="w-[150px] bg-green-700 h-[2px] my-4"/>
+                <DealOfDay/>
+            </div>
+
+            <div className="flex flex-col justify-center items-center my-16">
+                <Label className="text-2xl font-semibold">Certifications</Label>
+                <Separator className="w-[120px] bg-green-700 h-[2px] my-4"/>
+                <div className="flex flex-row space-x-6 p-6 justify-between px-16">
+                    {certifications.map((src, i) => {
+                        return (
+                            <Image
+                                key={i}
+                                isBlurred
+                                width={240}
+                                src={src}
+                                alt="Certifications"
+                            />
+                        );
+                    })
+                    }
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    )
 }
