@@ -121,7 +121,7 @@ export default function Home() {
             </div>
           </div>
           <div className="px-6 py-4 border-t">
-            <Button className="w-full bg-primary-cyan">Send message</Button>
+            <Button className="w-full bg-primary-cyan text-white">Send message</Button>
           </div>
         </Card>
       </div>
