@@ -1,181 +1,136 @@
+"use client"
 import {Button} from '@nextui-org/button';
-import HomeSlider from "@/components/HomeSlider";
 import NextImage from "next/image";
-import {Card, CardBody, CardFooter, CardHeader, Image} from "@nextui-org/react";
+import {Image} from "@nextui-org/react";
 import {Label} from "@/components/ui/label";
-import {Separator} from "@/components/ui/separator";
 import Link from "next/link";
-import {IoFishOutline} from "react-icons/io5";
-import {MdOutlineHandshake} from "react-icons/md";
-import {BsBox2Heart} from "react-icons/bs";
-import {RiSecurePaymentLine} from "react-icons/ri";
-import HomepageButtonShop from "@/components/HomepageButtonShop";
-import ProductsGrid from "@/components/ProductsGrid";
-import DealOfDay from "@/components/DealOfDay";
+import Autoplay from "embla-carousel-autoplay"
+import slide1 from "../../public/images/slide1.jpg";
+import slide2 from "../../public/images/slide2.jpg";
+import slide3 from "../../public/images/slide3.jpg";
+import {Carousel, CarouselContent, CarouselItem,} from "@/components/ui/carousel"
+import {Card as ShadCnCard, CardContent} from "@/components/ui/card"
+import {HeartIcon, PuzzleIcon, ShieldCheckIcon} from "lucide-react";
 
-const images = [
-    "/images/slide.png",
-    "/images/slide.png",
-    "/images/slide.png",
+const slides = [
+    {title:"Experience the best care for your loved ones",subTitle:"Nelioncare provides high-quality, compassionate care services that allow you to age with dignity and grace.",image:slide1,button:"Learn more",link:"/our-services"},
+    {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That's why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/contact-us"},
+    {title:"Quality care is our promise to you",subTitle:" We are committed to providing the highest quality care possible. Our staff is highly trained and experienced, and we are dedicated to providing a safe and nurturing environment for our residents.",image:slide3,button:"Read more",link:"/about-us"},
 ];
 
-const certifications = [
-    "/images/haccp.png",
-    "/images/gmp.png",
-    "/images/iso.png",
-    "/images/halal.png",
+const featureCards = [
+    {title:"Compassionate Care",description:"We are committed to providing compassionate care to the elderly.",icon:<HeartIcon className="h-12 w-12 text-primary-cyan"/>},
+    {title:"Safe Environment",description:"We focus on creating a safe and secure environment for the residents.",icon:<ShieldCheckIcon className="h-12 w-12 text-primary-cyan"/>},
+    {title:"Engaging Activities",description:"We provide engaging activities and social interaction for the residents.",icon:<PuzzleIcon className="h-12 w-12 text-primary-cyan"/>},
+]
+
+const servicesCards = [
+    {name:"Visiting Care",image:"/images/why-choose.jpg",description:"Our tailored home care services include personal care,companionship, support with getting ready in the morning, help with meals, and light domestic duties. For further information please contact us on the email or telephone.",link:"/our-services/visiting-care"},
+    {name:"Live in Care",image:"/images/why-choose.jpg",description:"Our live-in-care can provide you with round the clock care from a dedicated carer who lives with you in your own home. They will be handy to support you at a moments notice. Live in care is also a great support for companionship and emotional support.  For further information please contact us on the email or telephone.",link:"/our-services/live-in-care"},
+    {name:"Emergency Care",image:"/images/why-choose.jpg",description:"You may need support at a moments notice. Our dedicated carers can be there to support you within 24 hour notice.   For further information please contact us on the email or telephone.",link:"/our-services/emergency-care"},
 ]
 
 export default function Home() {
     return (
         <div>
-            <div className="flex flex-row space-x-2 my-4 px-4">
-                <Card className="w-1/3 h-full">
-                    <CardBody className="flex flex-col space-y-2">
-                        <Label className="text-base font-bold w-full text-center">Categories</Label>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Salt Water Fish</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Fresh Water Fish</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Preserved Fish</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Fish Fillets</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Shellfish</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Whole Fish</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Seafood Blends and Mixes</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Specialty Seafood</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Organic and Sustainable
-                            Options</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Breaded and Ready-to-Cook</Label></Link>
-                        <Separator/>
-                        <Link href="/shop" className="flex flex-row items-center space-x-2 hover:text-green-700 hover:stroke-green-700 hover:scale-105 transition-all duration-1000 ease-in-out">
-                            <IoFishOutline/> <Label className="cursor-pointer">Global Seafood Selection</Label></Link>
-                    </CardBody>
-                </Card>
-                <Card className="w-full p-0 h-[400px]">
-                    <HomeSlider loop>
-                        {images.map((src, i) => {
-                            return (
-                                // 👇 style each individual slide.
-                                // relative - needed since we use the fill prop from next/image component
-                                // h-64 - arbitrary height
-                                // flex[0_0_100%]
-                                //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
-                                //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
-                                <div className="relative h-[400px] flex-[0_0_100%]" key={i}>
-                                    {/* use object-cover + fill since we don't know the height and width of the parent */}
-                                    <NextImage src={src} fill className="object-cover" alt="alt" priority={false}/>
-                                </div>
-                            );
-                        })}
-                    </HomeSlider>
-                </Card>
-
-            </div>
-            <div className="flex flex-row space-x-6 p-6 mt-16">
-                <Card
-                    className="w-full aspect-video bg-green-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
-                    <CardBody className="flex flex-col items-center justify-center h-full">
-                        <MdOutlineHandshake className="w-14 h-14" color="red"/>
-                        <Label className="text-lg font-bold mt-2 pointer-none">Cash on delivery</Label>
-                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Seal the Deal, Pay with
-                            Ease – Cash on Delivery, Where Convenience Meets Confidence!</Label>
-                    </CardBody>
-                </Card>
-                <Card
-                    className="w-full aspect-video bg-orange-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
-                    <CardBody className="flex flex-col items-center justify-center h-full">
-                        <BsBox2Heart className="w-14 h-14" color="red"/>
-                        <Label className="text-lg font-bold mt-2 pointer-none">Secure payment</Label>
-                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Unlock Peace of Mind:
-                            Your Transactions, Our Fort Knox – Secure Payments, Seamless Confidence.</Label>
-
-                    </CardBody>
-                </Card>
-                <Card
-                    className="w-full aspect-video bg-purple-100 hover:animate-bounce shadow-lg transition-all duration-1000 ease-in-out">
-                    <CardBody className="flex flex-col items-center justify-center h-full">
-                        <RiSecurePaymentLine className="w-14 h-14" color="red"/>
-                        <Label className="text-lg font-bold mt-2 pointer-none">Delivery on time</Label>
-                        <Label className="text-sm text-slate-500 px-4 text-center pointer-none">Prompt Precision, Swift
-                            Satisfaction – Delivering On Time, Every Time.</Label>
-
-                    </CardBody>
-                </Card>
-            </div>
-            <div className="mt-24 flex flex-row space-x-6 p-6">
-                <div className="w-1/2 flex flex-row justify-center space-x-16">
-                    <div className="flex flex-col relative w-full items-center justify-center">
-                        <Image
-                            isBlurred
-                            src={"/images/homepage.jpg"}
-                            alt="Chhuya Frozen Foods Ltd"
-                            className="object-cover aspect-video h-[500px] mb-16"
-                        />
-                    </div>
-                    <div className="flex flex-col relative w-full items-center justify-center">
-                        <Image
-                            isBlurred
-                            src={"/images/homepage.jpeg"}
-                            alt="Chhuya Frozen Foods Ltd"
-                            className="object-cover aspect-video h-[500px] mt-16"
-                        />
-                    </div>
-                    {/*<NextImage src={"/images/homepage.jpg"} alt="logo" height={200} width={200}
-                               className="object-cover mb-16"/>
-                    <NextImage src={"/images/homepage.jpeg"} alt="logo" height={200} width={200}
-                               className="object-cover mt-16"/>*/}
-                </div>
-                <HomepageButtonShop/>
-            </div>
-            <div className="flex flex-col mb-6 mt-24 items-center">
-                <Label className="text-2xl font-semibold">Our Best Seller</Label>
-                <Separator className="w-[150px] bg-green-700 h-[2px] my-4"/>
-                <div className="grid grid-cols-5 gap-4 p-4">
-                    <ProductsGrid variant={"lg"}/>
-                </div>
-            </div>
-            <div className="flex flex-col mb-24 items-center">
-                <Label className="text-2xl font-semibold">Deals of The Day</Label>
-                <Separator className="w-[150px] bg-green-700 h-[2px] my-4"/>
-                <DealOfDay/>
-            </div>
-
-            <div className="flex flex-col justify-center items-center my-16">
-                <Label className="text-2xl font-semibold">Certifications</Label>
-                <Separator className="w-[120px] bg-green-700 h-[2px] my-4"/>
-                <div className="flex flex-row space-x-6 p-6 justify-between px-16">
-                    {certifications.map((src, i) => {
-                        return (
+            <Carousel className="w-full"
+                      opts={{
+                          align: "start",
+                          loop: true
+                      }}
+                      plugins={[
+                          Autoplay({
+                              delay: 2000,
+                          }),
+                      ]}>
+                <CarouselContent>
+                    {slides.map((data, index) => (
+                        <CarouselItem key={index}>
+                            <ShadCnCard className="rounded-none w-full">
+                                <CardContent className="relative aspect-[16/11] sm:aspect-[16/6] w-full p-0">
+                                    <NextImage src={data.image} alt={data.title} fill className="object-cover"/>
+                                    <div className="absolute w-full h-full bg-slate-950/60 flex flex-col justify-center items-center md:items-start p-4 md:pl-20">
+                                        <p className="text-slate-50 text-[16px] md:text-4xl text-center md:text-start">{data.title}</p>
+                                        <p className="text-slate-50 text-[10px] md:text-base w-full md:w-1/2 my-2 text-center md:text-start">{data.subTitle}</p>
+                                        <Link href={data.link}>
+                                            <Button className="w-fit mt-2 bg-primary-cyan text-white">
+                                                {data.button}
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                </CardContent>
+                            </ShadCnCard>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
+            <section className="w-full bg-primary-cyan">
+                <div className="container py-12 px-4 md:px-6 mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div className="col-span-1 flex p-6 justify-center items-center">
                             <Image
-                                key={i}
+                                isZoomed
                                 isBlurred
-                                width={240}
-                                src={src}
-                                alt="Certifications"
+                                src="/images/why-choose.jpg"
+                                alt="Why Choose Us"
+                                className="object-cover aspect-square w-full"
                             />
-                        );
-                    })
-                    }
+                        </div>
+                        <div className="col-span-1 space-y-12 flex flex-col p-6 items-start justify-start">
+                            <Label className="text-4xl font-bold text-white md:text-start text-center">More than care, a family around the clock</Label>
+                            <Label className="text-base text-white text-justify">Dedicated to enriching lives, Nelion Care goes beyond quality homecare.
+                                Our nationwide network of passionate CareGivers and supportive office teams work in unison to keep clients safe, independent, and thriving in their own homes.  Our nationwide network of passionate CareGivers and supportive office teams work in unison to keep clients safe, independent, and thriving in their own homes.<br/><br/>
+                                For us, it&apos;s not just a service, it&apos;s a privilege to build deep connections and make a lasting difference, one life at a time.  For us, it&apos;s not just a service, it&apos;s a privilege to build deep connections and make a lasting difference, one life at a time.</Label>
+                            <Button variant="shadow" color="secondary" className="w-full text-white">Contact us</Button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
+            <section className="w-full py-8 md:py-16 bg-white">
+                <div className="container px-4 md:px-6 mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {featureCards.map((data,index)=>(
+                            <div key={index} className="flex flex-col items-center text-center">
+                                {data.icon}
+                                <h2 className="mt-4 text-2xl font-semibold">{data.title}</h2>
+                                <p className="mt-2 text-gray-600">{data.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <section className="w-full py-12 md:py-24 bg-gradient-to-r from-primary-cyan via-pink-500 to-primary-brown">
+                <div className="container px-4 md:px-6">
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl my-4">Our Services</h2>
+                        <p className="max-w-[600px] mx-auto text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                            At Nelion Care, we offer a range of home care services to suit your needs. Our services range from hourly visit to 24 hour care, companionship, personal care, domestic support, support to access the community, GP visits and Live in care.
+                        </p>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-3 md:gap-12">
+                        {servicesCards.map((data,index)=>(
+                            <Link href={data.link} key={index} className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg">
+                                <Image
+                                    isBlurred
+                                    alt={data.name}
+                                    className="h-24 w-24 mb-4 object-cover rounded-full select-none"
+                                    height="300"
+                                    src={data.image}
+                                    style={{
+                                        aspectRatio: "300/300",
+                                        objectFit: "cover",
+                                    }}
+                                    width="300"
+                                />
+                                <h3 className="text-xl font-bold mb-2 select-none">{data.name}</h3>
+                                <p className="text-gray-500 mb-6 select-none">
+                                    {data.description}
+                                </p>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
