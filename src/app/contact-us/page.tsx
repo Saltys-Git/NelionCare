@@ -102,7 +102,7 @@ export default function Home() {
         <Card className="max-w-full md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
           <div className="sm:flex sm:items-center px-6 py-4">
             <h2 className="text-lg font-semibold text-gray-900">Contact Us</h2>
-            <p className="mt-2 text-gray-600 sm:mt-0 sm:ml-4">We'd love to hear from you!</p>
+            <p className="mt-2 text-gray-600 sm:mt-0 sm:ml-4">We&apos;d love to hear from you!</p>
           </div>
           <div className="px-6 py-4">
             <div className="grid grid-cols-1 gap-4">

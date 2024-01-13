@@ -14,7 +14,7 @@ import {HeartIcon, PuzzleIcon, ShieldCheckIcon} from "lucide-react";
 
 const slides = [
     {title:"Experience the best care for your loved ones",subTitle:"Nelioncare provides high-quality, compassionate care services that allow you to age with dignity and grace.",image:slide1,button:"Learn more",link:"/our-services"},
-    {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That's why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/contact-us"},
+    {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That&apos;s why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/contact-us"},
     {title:"Quality care is our promise to you",subTitle:" We are committed to providing the highest quality care possible. Our staff is highly trained and experienced, and we are dedicated to providing a safe and nurturing environment for our residents.",image:slide3,button:"Read more",link:"/about-us"},
 ];
 
@@ -118,7 +118,7 @@ export default function Home() {
                                         </svg>
                                     </summary>
                                     <p className="text-fuchsia-700">
-                                        We provide personalized care plans tailored to each individual's unique needs and preferences.
+                                        We provide personalized care plans tailored to each individual&apos;s unique needs and preferences.
                                     </p>
                                 </details>
                                 <details className="space-y-2 bg-fuchsia-100  rounded-lg p-4 transform transition-transform duration-500 hover:scale-105">
