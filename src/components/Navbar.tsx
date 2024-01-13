@@ -19,7 +19,7 @@ import { RiServiceFill } from "react-icons/ri";
 
 const mainMenus = [
     {name:"Home",link:"/"},
-    {name:"Our Services",link:"/"},
+    {name:"Our Services",link:"/our-services"},
     {name:"About Us",link:"/about-us"},
     {name:"Join Our Team",link:"/join-us"},
     {name:"Contact Us",link:"/contact-us"},

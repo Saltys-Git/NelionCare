@@ -20,10 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='light'>
-      <body className={inter.className}>
+      <body className={inter.className+"w-full"}>
       <Provider>
           <NavbarComp/>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full">
               {children}
           </div>
           <Footer/>

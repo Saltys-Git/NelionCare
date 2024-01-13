@@ -1,17 +1,18 @@
 import {Label} from "@/components/ui/label";
 import {Image} from "@nextui-org/react";
 import {Separator} from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Home() {
   return (
     <div>
-      <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover ">
+      <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
         <div className="w-full h-full bg-slate-500/50 flex flex-col justify-center items-center">
           <Label className="text-4xl font-bold text-center text-white ">About us</Label>
           <Label className="text-sm mt-2 text-center text-white">Home &gt; About us</Label>
         </div>
       </div>
-      <div className="w-full grid grid-cols-4 p-8 px-24 gap-8 my-36">
+      {/*<div className="w-full grid grid-cols-4 p-8 px-24 gap-8 my-36">
         <div className="col-span-2 flex flex-col relative w-full items-center justify-center">
           <Image
               isZoomed
@@ -78,7 +79,7 @@ export default function Home() {
             <Label className="text-sm mt-2 text-center text-white">To be the Leading House-hold Brand as well as promoting the health benefits of consuming fish.
             </Label>
           </div>
-      </div>
+      </div>*/}
     </div>
   )
 }
