@@ -24,12 +24,11 @@ export const ChevronDown = ({fill, size, ...props}) => {
 
 
 
-export const Logo = ({height, width}) => {
+export const Logo = ({height}) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             height={height}
-            // width={width}
             viewBox="0 0 2504.07 747.03"
         >
             <defs>

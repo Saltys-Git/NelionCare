@@ -42,7 +42,7 @@ export default function NavbarComp() {
         <Navbar shouldHideOnScroll maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
                 <Link href="/" className="flex flex-row items-center">
-                    <Logo height={50} width={100}/>
+                    <Logo height={50}/>
                 </Link>
             </NavbarBrand>
             <NavbarContent className="hidden md:flex gap-4 pr-12" justify="end">
