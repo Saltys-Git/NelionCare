@@ -41,7 +41,7 @@ export default function NavbarComp() {
     return (
         <Navbar shouldHideOnScroll maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
-                <Link href="/" className="flex flex-row items-center">
+                <Link href="/ " className="flex flex-row items-center">
                     <Logo height={50}/>
                 </Link>
             </NavbarBrand>
@@ -152,10 +152,10 @@ export default function NavbarComp() {
                                     }}
                                 >
                                     <AccordionItem key="1" aria-label="Our Services"
-                                                   title={<span className={cn("py-0 text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === "/" && "text-primary-cyan font-bold")}>Our Services</span>}>
+                                                   title={<span className={cn("py-0 text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === menu.link && "text-primary-cyan font-bold")}>Our Services</span>}>
                                         {subMenus.map((data,index)=>{
                                             return(
-                                                <Link key={index} href="/" className={cn("pb-1 w-full text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === "/" && "text-primary-cyan font-bold")}>
+                                                <Link key={index} href={data.link} className={cn("pb-1 w-full text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === data.link && "text-primary-cyan font-bold")}>
                                                     {data.name}
                                                 </Link>
                                             )

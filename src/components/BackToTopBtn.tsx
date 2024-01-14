@@ -25,7 +25,7 @@ export default function BackToTopBtn() {
     }, []);
 
     return (
-        <div className="">
+        <div className="z-[500]">
             {
                 onTop?
                 <button

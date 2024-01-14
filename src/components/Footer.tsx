@@ -27,14 +27,14 @@ export default function Footer(){
                     <Label className="text-lg font-bold">Help & Information</Label>
                     <Separator className="w-[50px]"/>
                     <Link href="/about-us" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">About Us</Link>
-                    <Link href="#" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Privacy Policy</Link>
-                    <Link href="#" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Terms & Conditions</Link>
+                    <Link href="/privacy-policy" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Privacy Policy</Link>
+                    <Link href="/terms-and-conditions" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Terms & Conditions</Link>
                 </div>
                 <div className="flex flex-col p-6 space-y-4 col-span-1">
                     <Label className="text-lg font-bold invisible hidden sm:block">Help & Information</Label>
                     <Separator className="w-[50px] invisible"/>
                     <Link href="/contact-us" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Contact Us</Link>
-                    <Link href="#" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Complain / Advice</Link>
+                    <Link href="/complain-or-advice" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Complain / Advice</Link>
                     <Link href="/free-consulation" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Schedule a Free Consultation</Link>
                 </div>
                 <div className="flex flex-col p-6 space-y-4 col-span-1">

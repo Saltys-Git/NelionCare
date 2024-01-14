@@ -28,7 +28,7 @@ export default function EmergencyCare() {
                               alt="Image"
                               className="aspect-video rounded-xl object-cover"
                               height="310"
-                              src="/images/service2.jpg"
+                              src="/images/service3.jpg"
                               width="550"
                           />
                       </div>
@@ -58,7 +58,7 @@ export default function EmergencyCare() {
                               isBlurred
                               alt="Image"
                               className="aspect-video rounded-xl object-cover"
-                              src="/images/service2.jpg"
+                              src="/images/service3.jpg"
                           />
                       </div>
                       <div className="flex flex-col justify-center space-y-4 sm:w-[55%]">
@@ -86,7 +86,7 @@ export default function EmergencyCare() {
                               alt="Image"
                               className="aspect-video rounded-xl object-cover"
                               height="310"
-                              src="/images/service2.jpg"
+                              src="/images/service3.jpg"
                               width="550"
                           />
                       </div>
