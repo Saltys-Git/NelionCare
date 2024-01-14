@@ -1,20 +1,16 @@
-"use client"
 import {Button} from '@nextui-org/button';
-import NextImage from "next/image";
 import {Image} from "@nextui-org/react";
 import {Label} from "@/components/ui/label";
 import Link from "next/link";
-import Autoplay from "embla-carousel-autoplay"
 import slide1 from "../../public/images/slide1.jpg";
 import slide2 from "../../public/images/slide2.jpg";
 import slide3 from "../../public/images/slide3.jpg";
-import {Carousel, CarouselContent, CarouselItem,} from "@/components/ui/carousel"
-import {Card as ShadCnCard, CardContent} from "@/components/ui/card"
 import {HeartIcon, PuzzleIcon, ShieldCheckIcon} from "lucide-react";
+import HomepageCarousel from '@/components/HomepageCarousel';
 
 const slides = [
     {title:"Experience the best care for your loved ones",subTitle:"Nelioncare provides high-quality, compassionate care services that allow you to age with dignity and grace.",image:slide1,button:"Learn more",link:"/our-services"},
-    {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That&apos;s why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/contact-us"},
+    {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That&apos;s why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/free-consulation"},
     {title:"Quality care is our promise to you",subTitle:" We are committed to providing the highest quality care possible. Our staff is highly trained and experienced, and we are dedicated to providing a safe and nurturing environment for our residents.",image:slide3,button:"Read more",link:"/about-us"},
 ];
 
@@ -33,37 +29,7 @@ const servicesCards = [
 export default function Home() {
     return (
         <div>
-            <Carousel className="w-full"
-                      opts={{
-                          align: "start",
-                          loop: true
-                      }}
-                      plugins={[
-                          Autoplay({
-                              delay: 2000,
-                          }),
-                      ]}>
-                <CarouselContent>
-                    {slides.map((data, index) => (
-                        <CarouselItem key={index}>
-                            <ShadCnCard className="rounded-none w-full">
-                                <CardContent className="relative aspect-[16/11] sm:aspect-[16/6] w-full p-0">
-                                    <NextImage src={data.image} alt={data.title} fill className="object-cover"/>
-                                    <div className="absolute w-full h-full bg-slate-950/60 flex flex-col justify-center items-center md:items-start p-4 md:pl-20">
-                                        <p className="text-slate-50 text-[16px] md:text-4xl text-center md:text-start select-none">{data.title}</p>
-                                        <p className="text-slate-50 text-[10px] md:text-base w-full md:w-1/2 my-2 text-center md:text-start select-none">{data.subTitle}</p>
-                                        <Button className="w-fit mt-2 bg-primary-cyan text-white">
-                                            <Link href={data.link} className="flex h-full w-full text-center justify-center items-center select-none">
-                                                {data.button}
-                                            </Link>
-                                        </Button>
-                                    </div>
-                                </CardContent>
-                            </ShadCnCard>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
+            <HomepageCarousel slides={slides}/>
             <section className="w-full bg-primary-cyan">
                 <div className="container py-12 px-4 md:px-6 mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">

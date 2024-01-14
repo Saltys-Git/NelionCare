@@ -35,7 +35,7 @@ export default function Footer(){
                     <Separator className="w-[50px] invisible"/>
                     <Link href="/contact-us" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Contact Us</Link>
                     <Link href="#" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Complain / Advice</Link>
-                    <Link href="#" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Online Service Support</Link>
+                    <Link href="/free-consulation" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Schedule a Free Consultation</Link>
                 </div>
                 <div className="flex flex-col p-6 space-y-4 col-span-1">
                     <Label className="text-lg font-bold">Stay Connected</Label>

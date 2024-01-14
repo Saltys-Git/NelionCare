@@ -1,0 +1,125 @@
+import {Button} from '@nextui-org/button';
+import NextImage from "next/image";
+import {FaFacebookF, FaInstagram} from "react-icons/fa";
+import {FaXTwitter} from "react-icons/fa6";
+import Link from "next/link";
+import {Input} from "@nextui-org/react";
+import {Textarea} from "@nextui-org/react";
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+export default function Home() {
+  return (
+    <div>
+      <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
+        <div className="w-full h-full bg-slate-500/50 flex flex-col justify-center items-center">
+          <Label className="text-4xl font-bold text-center text-white ">Complain/Advice</Label>
+          <Label className="text-sm mt-2 text-center text-white">Home &gt; Complain/Advice</Label>
+        </div>
+      </div>
+      <section className="w-full py-12 md:py-16 bg-[#F5F5F5]">
+        <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-16 lg:gap-10">
+          <div className="space-y-3">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Where do i start ?
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              We are here to listen to your complain or advice. Get started in Three Easy Steps.
+            </p>
+          </div>
+          <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#FEF3C7] dark:bg-[#4B5563] rounded-full flex items-center justify-center text-2xl font-bold">
+                1
+              </div>
+            </div>
+            <Card className="bg-[#FEF3C7] dark:bg-[#4B5563]">
+              <CardHeader>
+                <CardTitle>Step 1</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4 border-y py-4">
+                <p className="text-sm/relaxed">
+                  Fill out the designated fields with your name and email address.
+                  In the "Message" box, clearly describe the nature of your concern or question. Be as specific as possible to ensure we can provide the most accurate and helpful response.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="flex w-full flex-col-reverse md:flex-row gap-8">
+            <Card className="bg-[#D1FAE5] dark:bg-[#4B5563] w-full md:w-1/2">
+              <CardHeader>
+                <CardTitle>Step 2</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4 border-y py-4">
+                <p className="text-sm/relaxed">
+                  Click the "Submit" button to send your message.
+                  You'll receive a confirmation email shortly acknowledging your feedback or inquiry.
+                </p>
+              </CardContent>
+            </Card>
+            <div className="flex items-center justify-center w-full md:w-1/2">
+              <div className="w-16 h-16 bg-[#D1FAE5] dark:bg-[#4B5563] rounded-full flex items-center justify-center text-2xl font-bold">
+                2
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="space-y-3 py-6 items-center justify-center w-full flex flex-col bg-gradient-to-r from-cyan-200 via-purple-200 to-amber-200">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Contact Details
+        </h2>
+        <p className="mx-auto text-center max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+          If you could give us a little information using the form we would be delighted to help.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-2 py-8 w-full divide-x bg-[#F5F5F5]">
+        <div className="flex flex-col justify-center items-center col-span-1">
+          <div className="flex flex-col p-6">
+            <NextImage src={"/logo.svg"} alt="logo" height={240} width={240} className="my-6"/>
+            <Label className="text-2xl font-bold mt-2">Nelion Care Services</Label>
+            <Label className="text-base">Bringing the best Home Care to your home</Label>
+            <div className="flex flex-col space-y-1 mt-2">
+              <Label className="text-lg">1 Union Street, Long Eaton, NG10 1HH</Label>
+              <Label className="text-lg">Email:</Label>
+              <Link href="mailto:care@nelioncare.co.uk" className="-mt-4 text-lg">care@nelioncare.co.uk</Link>
+              <Label className="text-lg">Tel:</Label>
+              <Link href="tel:+447810037290" className="-mt-4 text-lg">07810037290</Link>
+            </div>
+            <div className="flex flex-row space-x-4 py-4">
+              <FaFacebookF size={20}/>
+              <FaInstagram size={20}/>
+              <FaXTwitter size={20}/>
+            </div>
+          </div>
+        </div>
+        <Card className="max-w-full min-w-[400px] md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
+          <div className="sm:flex sm:items-center px-6 py-4">
+            <h2 className="text-lg font-semibold text-gray-900">Submit a complain or advice to us</h2>
+            {/*<p className="mt-2 text-gray-600 sm:mt-0 sm:ml-4">We&apos;d love to hear from you!</p>*/}
+          </div>
+          <div className="px-6 py-4">
+            <div className="grid grid-cols-1 gap-4">
+              <div className="space-y-2">
+                <Input id="first-name" placeholder="Enter your first name" />
+              </div>
+              <div className="space-y-2">
+                <Input id="last-name" placeholder="Enter your last name" />
+              </div>
+              <div className="space-y-2">
+                <Input id="email" placeholder="Enter your email" type="email" />
+              </div>
+              <div className="space-y-2">
+                <Textarea className="min-h-[100px]" id="message" placeholder="Enter your message" />
+              </div>
+            </div>
+          </div>
+          <div className="px-6 py-4 border-t">
+            <Button className="w-full bg-primary-cyan text-white">Send message</Button>
+          </div>
+        </Card>
+      </div>
+    </div>
+  )
+}
