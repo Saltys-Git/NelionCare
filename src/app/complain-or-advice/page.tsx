@@ -40,7 +40,7 @@ export default function Home() {
               <CardContent className="grid gap-4 border-y py-4">
                 <p className="text-sm/relaxed">
                   Fill out the designated fields with your name and email address.
-                  In the "Message" box, clearly describe the nature of your concern or question. Be as specific as possible to ensure we can provide the most accurate and helpful response.
+                  In the &quotMessage&quot box, clearly describe the nature of your concern or question. Be as specific as possible to ensure we can provide the most accurate and helpful response.
                 </p>
               </CardContent>
             </Card>
@@ -52,8 +52,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="grid gap-4 border-y py-4">
                 <p className="text-sm/relaxed">
-                  Click the "Submit" button to send your message.
-                  You'll receive a confirmation email shortly acknowledging your feedback or inquiry.
+                  Click the &quotSubmit&quot button to send your message.
+                  You&apos;ll receive a confirmation email shortly acknowledging your feedback or inquiry.
                 </p>
               </CardContent>
             </Card>

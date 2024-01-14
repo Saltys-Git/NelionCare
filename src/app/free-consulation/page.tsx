@@ -39,7 +39,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="grid gap-4 border-y py-4">
                 <p className="text-sm/relaxed">
-                  Fill in your name, email address, and phone number clearly in the designated fields. Briefly describe your reason for seeking care in the "Message" box. This helps us tailor the consultation to your specific needs.
+                  Fill in your name, email address, and phone number clearly in the designated fields. Briefly describe your reason for seeking care in the &quot;Message&quot; box. This helps us tailor the consultation to your specific needs.
                 </p>
               </CardContent>
             </Card>
@@ -54,7 +54,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="grid gap-4 border-y py-4">
                 <p className="text-sm/relaxed">
-                  Leave a note in the "Message" box with your preferred date and time range, and we'll strive to accommodate you.
+                  Leave a note in the &quot;Message&quot; box with your preferred date and time range, and we&apos;ll strive to accommodate you.
                 </p>
               </CardContent>
             </Card>
@@ -69,8 +69,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="grid gap-4 border-y py-4">
                 <p className="text-sm/relaxed">
-                  Click the "Submit" button to send your request.
-                  You'll receive a confirmation email shortly with details of your scheduled consultation.
+                  Click the &quot;Submit&quot; button to send your request.
+                  You&apos;ll receive a confirmation email shortly with details of your scheduled consultation.
                 </p>
               </CardContent>
             </Card>
