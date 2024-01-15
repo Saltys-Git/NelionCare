@@ -16,6 +16,7 @@ import {ChevronDown, Logo, SingleLogo} from "./Svgs.jsx";
 import {usePathname} from "next/navigation";
 import {cn} from "@/lib/utils";
 import { RiServiceFill } from "react-icons/ri";
+import { useRouter } from 'next/navigation'
 
 const mainMenus = [
     {name:"Home",link:"/"},
@@ -38,6 +39,7 @@ export default function NavbarComp() {
         care: <RiServiceFill size={16} className={"fill-primary-cyan"}/>
     };
     const pathname = usePathname()
+    const router = useRouter()
     return (
         <Navbar shouldHideOnScroll maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
@@ -74,12 +76,15 @@ export default function NavbarComp() {
                                         return(
                                                 <DropdownItem
                                                     key={index}
+                                                    onClick={()=>{
+                                                        router.push(data.link)
+                                                    }}
                                                     description={data.description}
                                                     startContent={icons.care}
                                                 >
-                                                    <Link href={data.link} className="font-semibold">
+                                                    <span className="font-semibold">
                                                         {data.name}
-                                                    </Link>
+                                                    </span>
                                                 </DropdownItem>
                                         )
                                     })}

@@ -24,7 +24,7 @@ export default function Home() {
               Where do i start ?
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              We are here to listen to your complain or advice. Get started in Three Easy Steps.
+              We are here to listen to your complain or advice. Get started in Two Easy Steps.
             </p>
           </div>
           <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8">
@@ -94,10 +94,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Card className="max-w-full min-w-[400px] md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
+        <Card className="max-w-full md:min-w-[400px] md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
           <div className="sm:flex sm:items-center px-6 py-4">
             <h2 className="text-lg font-semibold text-gray-900">Submit a complain or advice to us</h2>
-            {/*<p className="mt-2 text-gray-600 sm:mt-0 sm:ml-4">We&apos;d love to hear from you!</p>*/}
           </div>
           <div className="px-6 py-4">
             <div className="grid grid-cols-1 gap-4">
