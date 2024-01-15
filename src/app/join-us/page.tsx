@@ -1,8 +1,5 @@
 import {Label} from "@/components/ui/label";
-import {Button, Image} from "@nextui-org/react";
-import {Separator} from "@/components/ui/separator";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
-import Link from "next/link";
+import {Image} from "@nextui-org/react";
 import {HeartIcon, ShieldCheckIcon, StarIcon} from "@/components/Svgs";
 import JoinFormModal from "@/components/JoinFormModal";
 
@@ -41,10 +38,10 @@ export default function Home() {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-bold">Why Nelioncare?</h2>
                         <p className="text-gray-600 dark:text-gray-400">
-                            Imagine a career where your compassion becomes your compass, where every smile you spark ignites a star in someone's life. At Nelion Care, we're not just providing care, we're weaving tapestries of hope and well-being, and we invite you to join us as a master weaver.<br/><br/>
-                            Step into the role of our community ambassador, not just an employee, but an architect of joy. We'll equip you with the knowledge and support to build bridges of understanding, where empathy is the mortar and kindness the bricks. You'll be a master listener, a confidante, a beacon of warmth in the lives of our service users.
-                            Think of it as crafting personalized masterpieces of care, where every interaction is a brushstroke of compassion. We'll provide the finest tools – training, resources, and a supportive team that's always there to cheer you on. But the real magic lies in your heart.<br/><br/>
-                            Do you possess the gentle touch of a sunrise, the listening ear of a confidante, and the unwavering spirit of a changemaker? Do you yearn to leave a legacy of love and laughter etched in the lives of others? Then, join us. Here, at Nelion Care, your passion for care will find its perfect canvas, and together, we'll paint a world where every life shines.
+                            Imagine a career where your compassion becomes your compass, where every smile you spark ignites a star in someone&aposs life. At Nelion Care, we&aposre not just providing care, we&aposre weaving tapestries of hope and well-being, and we invite you to join us as a master weaver.<br/><br/>
+                            Step into the role of our community ambassador, not just an employee, but an architect of joy. We&aposll equip you with the knowledge and support to build bridges of understanding, where empathy is the mortar and kindness the bricks. You&aposll be a master listener, a confidante, a beacon of warmth in the lives of our service users.
+                            Think of it as crafting personalized masterpieces of care, where every interaction is a brushstroke of compassion. We&aposll provide the finest tools – training, resources, and a supportive team that&aposs always there to cheer you on. But the real magic lies in your heart.<br/><br/>
+                            Do you possess the gentle touch of a sunrise, the listening ear of a confidante, and the unwavering spirit of a changemaker? Do you yearn to leave a legacy of love and laughter etched in the lives of others? Then, join us. Here, at Nelion Care, your passion for care will find its perfect canvas, and together, we&aposll paint a world where every life shines.
                         </p>
                         <JoinFormModal/>
                     </div>
