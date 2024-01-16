@@ -41,7 +41,7 @@ export default function NavbarComp() {
     const pathname = usePathname()
     const router = useRouter()
     return (
-        <Navbar shouldHideOnScroll maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
+        <Navbar shouldHideOnScroll maxWidth="full" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
             <NavbarBrand>
                 <Link href="/ " className="flex flex-row items-center">
                     <Logo height={50}/>
@@ -160,7 +160,9 @@ export default function NavbarComp() {
                                                    title={<span className={cn("py-0 text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === menu.link && "text-primary-cyan font-bold")}>Our Services</span>}>
                                         {subMenus.map((data,index)=>{
                                             return(
-                                                <Link key={index} href={data.link} className={cn("pb-1 w-full text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === data.link && "text-primary-cyan font-bold")}>
+                                                <Link
+                                                    onClick={()=>setIsMenuOpen(false)}
+                                                    key={index} href={data.link} className={cn("pb-1 w-full text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === data.link && "text-primary-cyan font-bold")}>
                                                     {data.name}
                                                 </Link>
                                             )
@@ -173,7 +175,9 @@ export default function NavbarComp() {
                     return(
                         <Link key={index} href={menu.link}
                               className={cn("text-base font-semibold hover:text-primary-cyan transition-all duration-1000 ease-in-out", pathname === menu.link && "text-primary-cyan font-bold")}>
-                            <NavbarItem isActive>
+                            <NavbarItem
+                                onClick={()=>setIsMenuOpen(false)}
+                                isActive>
                                 {menu.name}
                             </NavbarItem>
                         </Link>
