@@ -11,16 +11,16 @@ const points = [
     {title:"Making a Difference",description:"Join a team that values making a real impact. Your compassion and skills will directly improve the lives of our service users, fueling your sense of purpose."}
 ]
 
-export default function Home() {
+export default function JoinUs() {
 
     return (
         <div>
             <div
                 className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
-                <div className="w-full h-full bg-slate-500/50 flex flex-col justify-center items-center">
+                <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
                     <Label className="text-4xl font-bold text-center text-white ">Join us</Label>
-                    <Label className="text-sm mt-2 text-center text-white">Join our dedicated team of caregivers and
-                        make a difference in the lives of our residents.</Label>
+                    <p className="text-sm mt-2 text-center text-white">Join our dedicated team of caregivers and
+                        make a difference in the lives of our residents.</p>
                 </div>
             </div>
             <section className="w-full px-6 py-16 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
@@ -132,7 +132,19 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-teal-200 via-cyan-200 to-blue-200">
+                <div className="container px-4 md:px-6">
+                    <div className="flex flex-col items-center space-y-4 text-center animate-fadeInUp">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                            Want to join our team?
+                        </h2>
+                        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+                            Fill up a simple application form and we&apos;ll get back to you as soon as possible.
+                        </p>
+                        <JoinFormModal/>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }

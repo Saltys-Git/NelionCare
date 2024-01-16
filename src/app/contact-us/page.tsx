@@ -1,20 +1,18 @@
-import {Button} from '@nextui-org/button';
 import NextImage from "next/image";
 import {FaFacebookF, FaInstagram} from "react-icons/fa";
 import {FaXTwitter} from "react-icons/fa6";
 import Link from "next/link";
-import {Input} from "@nextui-org/react";
-import {Textarea} from "@nextui-org/react";
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {Label} from "@/components/ui/label"
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import {ContactUsForm} from "@/components/ContactFroms";
 
 export default function Home() {
   return (
     <div>
       <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
-        <div className="w-full h-full bg-slate-500/50 flex flex-col justify-center items-center">
+        <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
           <Label className="text-4xl font-bold text-center text-white ">Contact us</Label>
-          <Label className="text-sm mt-2 text-center text-white">Home &gt; Contact us</Label>
+          <p className="text-sm mt-2 text-center text-white">Please contact us for you person-centered care using the details below</p>
         </div>
       </div>
       <section className="w-full py-12 md:py-16 bg-[#F5F5F5]">
@@ -99,31 +97,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Card className="max-w-full md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
-          <div className="sm:flex sm:items-center px-6 py-4">
-            <h2 className="text-lg font-semibold text-gray-900">Contact Us</h2>
-            <p className="mt-2 text-gray-600 sm:mt-0 sm:ml-4">We&apos;d love to hear from you!</p>
-          </div>
-          <div className="px-6 py-4">
-            <div className="grid grid-cols-1 gap-4">
-              <div className="space-y-2">
-                <Input id="first-name" placeholder="Enter your first name" />
-              </div>
-              <div className="space-y-2">
-                <Input id="last-name" placeholder="Enter your last name" />
-              </div>
-              <div className="space-y-2">
-                <Input id="email" placeholder="Enter your email" type="email" />
-              </div>
-              <div className="space-y-2">
-                <Textarea className="min-h-[100px]" id="message" placeholder="Enter your message" />
-              </div>
-            </div>
-          </div>
-          <div className="px-6 py-4 border-t">
-            <Button className="w-full bg-primary-cyan text-white">Send message</Button>
-          </div>
-        </Card>
+        <ContactUsForm/>
       </div>
     </div>
   )

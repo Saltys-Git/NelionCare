@@ -5,6 +5,7 @@ import {Provider} from "@/components/Provider";
 import NavbarComp from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTopBtn from "@/components/BackToTopBtn";
+import {Toaster} from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           </div>
           <Footer/>
           <BackToTopBtn/>
+          <Toaster />
       </Provider>
       </body>
     </html>

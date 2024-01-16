@@ -31,27 +31,27 @@ export default function PrivacyPolicy() {
                   <Label className="text-4xl font-bold text-center text-white ">Privacy Policy</Label>
               </div>
           </div>
-          <section className="prose prose-lg max-w-[800px] bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-fuchsia-600 text-3xl font-semibold my-2">Introduction</h2>
-              <p>
-                  Comfortable UK is focused on safeguarding the security of guests to our site,
-                  endorsers of our pamphlets and those furnishing us with contact data. Kindly read
-                  the accompanying Protection Strategy to comprehend how your own data is dealt
-                  with. Now and again, Comfortable UK might offer new data or administrations that
-                  might influence this arrangement. On the off chance that you have any various forms
-                  of feedback with respect to this Security Strategy, kindly send an email to
-                  info@nelioncare.co.uk
-              </p>
-              <h2 className="text-fuchsia-600 text-3xl font-semibold">Privacy Policy</h2>
-              {conditions.map((data,index)=>(
-                  <div className="my-4" key={index}>
-                      <h3 className="text-fuchsia-500 text-xl font-semibold">{data.title}</h3>
-                      <p>
-                          {data.description}
-                      </p>
-                  </div>
-              ))}
-          </section>
+              <section className="prose prose-lg max-w-[800px] bg-white p-8 rounded-lg shadow-lg">
+                  <h2 className="text-fuchsia-600 text-3xl font-semibold my-2">Introduction</h2>
+                  <p>
+                      Comfortable UK is focused on safeguarding the security of guests to our site,
+                      endorsers of our pamphlets and those furnishing us with contact data. Kindly read
+                      the accompanying Protection Strategy to comprehend how your own data is dealt
+                      with. Now and again, Comfortable UK might offer new data or administrations that
+                      might influence this arrangement. On the off chance that you have any various forms
+                      of feedback with respect to this Security Strategy, kindly send an email to
+                      info@nelioncare.co.uk
+                  </p>
+                  <h2 className="text-fuchsia-600 text-3xl font-semibold">Privacy Policy</h2>
+                  {conditions.map((data,index)=>(
+                      <div className="my-4" key={index}>
+                          <h3 className="text-fuchsia-500 text-xl font-semibold">{data.title}</h3>
+                          <p>
+                              {data.description}
+                          </p>
+                      </div>
+                  ))}
+              </section>
       </div>
   )
 }

@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <div>
       <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
-        <div className="w-full h-full bg-slate-500/50 flex flex-col justify-center items-center">
+        <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
           <Label className="text-4xl font-bold text-center text-white ">Complain/Advice</Label>
-          <Label className="text-sm mt-2 text-center text-white">Home &gt; Complain/Advice</Label>
+          <p className="text-sm mt-2 text-center text-white">Home &gt; Complain/Advice</p>
         </div>
       </div>
       <section className="w-full py-12 md:py-16 bg-[#F5F5F5]">
