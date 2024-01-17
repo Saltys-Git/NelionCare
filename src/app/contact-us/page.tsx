@@ -4,7 +4,13 @@ import {FaXTwitter} from "react-icons/fa6";
 import Link from "next/link";
 import {Label} from "@/components/ui/label"
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
-import {ContactUsForm} from "@/components/ContactFroms";
+import {ContactForm} from "@/components/ContactFroms";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: 'Contact Us - Nelion Care - Bringing the best Home Care to your home',
+  description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 
 export default function Home() {
   return (
@@ -97,7 +103,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <ContactUsForm/>
+        <ContactForm subject="Contact Us Form" title="Contact Us" hasSubTitle={true} subTitle="We&apos;d love to hear from you!"/>
       </div>
     </div>
   )

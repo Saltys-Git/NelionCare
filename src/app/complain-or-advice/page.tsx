@@ -1,13 +1,17 @@
-import {Button} from '@nextui-org/button';
 import NextImage from "next/image";
 import {FaFacebookF, FaInstagram} from "react-icons/fa";
 import {FaXTwitter} from "react-icons/fa6";
 import Link from "next/link";
-import {Input} from "@nextui-org/react";
-import {Textarea} from "@nextui-org/react";
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {Label} from "@/components/ui/label"
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import {Metadata} from "next";
+import {ContactForm} from "@/components/ContactFroms";
 
+
+export const metadata: Metadata = {
+  title: 'Complain/Advice - Nelion Care - Bringing the best Home Care to your home',
+  description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 export default function Home() {
   return (
     <div>
@@ -94,30 +98,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Card className="max-w-full md:min-w-[400px] md:max-w-md mx-4 md:mx-auto bg-white shadow-lg rounded-lg overflow-hidden bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
-          <div className="sm:flex sm:items-center px-6 py-4">
-            <h2 className="text-lg font-semibold text-gray-900">Submit a complain or advice to us</h2>
-          </div>
-          <div className="px-6 py-4">
-            <div className="grid grid-cols-1 gap-4">
-              <div className="space-y-2">
-                <Input id="first-name" placeholder="Enter your first name" />
-              </div>
-              <div className="space-y-2">
-                <Input id="last-name" placeholder="Enter your last name" />
-              </div>
-              <div className="space-y-2">
-                <Input id="email" placeholder="Enter your email" type="email" />
-              </div>
-              <div className="space-y-2">
-                <Textarea className="min-h-[100px]" id="message" placeholder="Enter your message" />
-              </div>
-            </div>
-          </div>
-          <div className="px-6 py-4 border-t">
-            <Button className="w-full bg-primary-cyan text-white">Send message</Button>
-          </div>
-        </Card>
+        <ContactForm subject="Complain/Advice Form" title="Submit a complain or advice to us" hasSubTitle={false}/>
       </div>
     </div>
   )

@@ -2,7 +2,12 @@ import {Label} from "@/components/ui/label";
 import {Button, Image} from "@nextui-org/react";
 import {Separator} from "@/components/ui/separator";
 import Link from "next/link";
+import {Metadata} from "next";
 
+export const metadata: Metadata = {
+    title: 'About us - Nelion Care - Bringing the best Home Care to your home',
+    description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 const missionPoints = [
     "Setting the strategic direction of the company and ensuring its long-term success.",
     "Fostering a culture of compassion, respect, and professionalism within the team.",

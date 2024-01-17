@@ -17,7 +17,7 @@ export async function sendEmailBasic({firstName,lastName,email,subject,message}:
             from: 'Acme <onboarding@resend.dev>',
             to: ['info@nelioncare.co.uk'],
             subject: subject,
-            react: EmailTemplate({firstName,lastName,email,message}),
+            react: EmailTemplate({firstName,lastName,email,message,subject}),
         });
         return {status:true, error:""};
     } catch (error:any) {

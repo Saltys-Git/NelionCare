@@ -2,7 +2,12 @@ import {Label} from "@/components/ui/label";
 import {Image} from "@nextui-org/react";
 import {HeartIcon, ShieldCheckIcon, StarIcon} from "@/components/Svgs";
 import JoinFormModal from "@/components/JoinFormModal";
+import {Metadata} from "next";
 
+export const metadata: Metadata = {
+    title: 'Join Our Team - Nelion Care - Bringing the best Home Care to your home',
+    description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 const points = [
     {title:"Competitive Pay & Growth",description:"Earn a rewarding £12.10 per hour, with guaranteed annual pay increases of 5% to recognize your dedication and progress."},
     {title:"Travel Made Easy",description:"Get reimbursed for your journey with a generous mileage allowance of 35p per mile, making getting to work smooth and cost-effective."},

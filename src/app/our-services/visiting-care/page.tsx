@@ -1,5 +1,12 @@
 import {Button, Image} from "@nextui-org/react";
 import Link from "next/link";
+import {Metadata} from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Visiting Care Service - Nelion Care - Bringing the best Home Care to your home',
+    description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 
 export default function VisitingCare() {
   return (

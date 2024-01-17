@@ -1,12 +1,11 @@
 import {Separator} from "@/components/ui/separator";
 import {Label} from "@/components/ui/label";
 import Link from "next/link";
-import {Image} from "@nextui-org/react";
-import NextImage from "next/image";
-import { FaFacebookF ,FaInstagram  } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import {FaFacebookF, FaInstagram} from "react-icons/fa";
+import {FaXTwitter} from "react-icons/fa6";
 import {Logo} from "./Svgs.jsx";
 import React from "react";
+
 export default function Footer(){
     return(
         <div className="w-full bg-white">
@@ -14,7 +13,6 @@ export default function Footer(){
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 bg-blue-100 py-5">
                 <div className="flex flex-col p-6 items-start mt-8 col-span-1">
                     <Logo height={50}/>
-                    {/*<NextImage src={"/images/logo.png"} alt="logo" height={120} width={120}/>*/}
                     <Label className="text-lg font-bold mt-4">Nelion Care Services</Label>
                     <Label className="text-sm">Bringing the best Home Care to your home</Label>
                     <div className="flex flex-row space-x-4 py-4">
@@ -35,7 +33,7 @@ export default function Footer(){
                     <Separator className="w-[50px] invisible"/>
                     <Link href="/contact-us" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Contact Us</Link>
                     <Link href="/complain-or-advice" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Complain / Advice</Link>
-                    <Link href="/free-consulation" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Schedule a Free Consultation</Link>
+                    <Link href="/free-consultation" className="hover:text-primary-cyan text-sm font-semibold transition-all ease-in-out duration-500">Schedule a Free Consultation</Link>
                 </div>
                 <div className="flex flex-col p-6 space-y-4 col-span-1">
                     <Label className="text-lg font-bold">Stay Connected</Label>

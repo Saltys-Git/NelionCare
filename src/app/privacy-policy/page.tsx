@@ -1,4 +1,11 @@
 import { Label } from "@/components/ui/label"
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy - Nelion Care - Bringing the best Home Care to your home',
+    description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
+
 
 const conditions = [
     {title:"How we use your information",description:"This security strategy lets you know what's in store when Nelion care UK gathers your own data. It applies to data we gather about: Guests to our sites Guests to our online entertainment channels Individuals who present their data to us by means of online contact structures, messages, web-based entertainment or eye to eye and phone discussions Individuals who utilise Comfortable administrations Work candidates and current and previous representatives Our protection strategy likewise subtleties: The outsider frameworks and suppliers we use. Objections or inquiries about our security strategy. Admittance to individual data. Revelation of individual data. Connections to different sites. Changes to this strategy. Organisation subtleties"},

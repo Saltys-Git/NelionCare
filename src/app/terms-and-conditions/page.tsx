@@ -1,4 +1,11 @@
 import { Label } from "@/components/ui/label"
+import {Metadata} from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Terms and Conditions - Nelion Care - Bringing the best Home Care to your home',
+    description: 'We are a family run Homecare Service provider dedicated to delivery of expert and compassionate person centred care in the comfort of you own home in Derbyshire, Nottinghamshire, Staffordshire and neigbouring counties.',
+}
 
 const conditions = [
     {title:"Our Services",description:"NelionCare provides qualified home care for individuals with age-related or physical limitations. While our website offers details about our services and general information on home care, it&apos;s important to remember that this information is not a substitute for professional medical advice. Consulting with a qualified healthcare professional remains crucial for addressing your specific health needs or those of your loved ones. The information found here lacks the thorough assessment and evaluation that comes with a medical consultation. Therefore, it shouldn&apos;t be seen as a professional opinion or recommended course of action for your individual situation. Please keep this in mind when using the website and its content. This version uses simpler language, shorter sentences, and avoids unnecessary legal jargon. It also emphasizes the importance of seeking professional medical advice while clarifying the limitations of the website&apos;s information. I hope this is helpful! Let me know if you have any other questions."},

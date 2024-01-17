@@ -9,7 +9,7 @@ import {HeartIcon, PuzzleIcon, ShieldCheckIcon} from "lucide-react";
 import HomepageCarousel from '@/components/HomepageCarousel';
 
 const slides = [
-    {title:"Experience the best care for your loved ones",subTitle:"Nelioncare provides high-quality, compassionate care services that allow you to age with dignity and grace.",image:slide1,button:"Learn more",link:"/our-services"},
+    {title:"Experience the best care for your loved ones",subTitle:"Nelioncare provides high-quality, compassionate care services that allow you to age with dignity and grace.",image:slide1,button:"Learn more",link:"/#our-services"},
     {title:"We tailor our care services to your individual needs",subTitle:"At Nelioncare, we understand that no two people are alike. That&apos;s why we take the time to get to know you and your loved ones so we can create a personalized care plan that meets your unique needs.",image:slide2,button:"Schedule a free consultation",link:"/free-consulation"},
     {title:"Quality care is our promise to you",subTitle:" We are committed to providing the highest quality care possible. Our staff is highly trained and experienced, and we are dedicated to providing a safe and nurturing environment for our residents.",image:slide3,button:"Read more",link:"/about-us"},
 ];
@@ -160,7 +160,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="w-full py-12 md:py-24 bg-gradient-to-r from-primary-cyan via-pink-500 to-primary-brown">
+            <section id="our-services" className="w-full py-12 md:py-24 bg-gradient-to-r from-primary-cyan via-pink-500 to-primary-brown">
                 <div className="container px-4 md:px-6">
                     <div className="text-center mb-10">
                         <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl mb-4">Our Services</h2>
