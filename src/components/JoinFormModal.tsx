@@ -11,15 +11,15 @@ import {
     Select,
     SelectItem,
     Input,
-    Checkbox, Textarea
+    Checkbox, Textarea, SelectSection
 } from "@nextui-org/react";
 import { Label } from "./ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns"
+import {addDays, format} from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
 import {FaMinus, FaPlus} from "react-icons/fa";
+import {DateRange} from "react-day-picker";
 
 const personalInfoInputs = [
     {name:"Surname",id:"surName",required:true},
@@ -67,26 +67,84 @@ const mandatoryTrainingCheckboxes = [
     "Interpretation of Cardiotocograph Traces (Midwifery)",
     "Practical",
 ]
+
+const genders = [
+    "Male",
+    "Female",
+    "I do not wish to disclose this"
+]
+
+const race = [
+    {group:"Asian or Asian British",items:["Bangladeshi","Indian","Pakistani","Any other Asian background"]},
+    {group:"Mixed Raced",items:["White & Asian","White & Black African","White & Black Caribbean","Any other missed background"]},
+    {group:"Other Ethnic Group",items:["Chinese","Any other ethnic group","I do not want to disclose this"]},
+    {group:"Black or Black British",items:["African","Caribbean","Any other Black background"]},
+    {group:"White",items:["British","Irish","Any other White background"]},
+]
+
+const equality = [
+    "Lesbian","Gay","Bisexual","Atheism","Sikhism","Buddhism","Judaism","Christianity","Hinduism"
+]
+
+
 export default function JoinFormModal() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [dateIsOpen, setDateIsOpen] = useState<boolean>(false)
-    const [date, setDate] = useState<Date>()
     const nextDate = new Date()
     nextDate.setDate(new Date().getDate() + 1)
     const [formData, setFormData] = useState<{
+        interviewDate: Date,
+        interviewDateIsOpen: boolean,
+        employmentHistory:{
+            date: DateRange | undefined,
+            employer: string,
+            position: string,
+            salaryBenefit: string,
+            reasonForLeaving: string,
+        }[],
+        educationHistory:{
+            institute: string,
+            year: number,
+            result: string,
+        }[],
         references:{
             name:string,
             status:string,
             address:string,
             telephone:string,
         }[]
+        dob: Date,
+        dobIsOpen: boolean,
+        race: Set<never>,
+        equality: Set<never>,
     }>({
+        interviewDate : new Date(),
+        interviewDateIsOpen: false,
+        employmentHistory:[{
+            date: {
+                from: new Date(),
+                to: addDays(new Date(), 1),
+            },
+            employer: "",
+            position: "",
+            salaryBenefit: "",
+            reasonForLeaving: "",
+        }],
+        educationHistory:[{
+            institute: "",
+            year: new Date().getFullYear(),
+            result: "",
+        }],
         references:[{
             name:"",
             status:"",
             address:"",
             telephone:"",
-        }]
+        }],
+        dob: new Date(),
+        dobIsOpen: false,
+        race:new Set([]),
+        equality:new Set([]),
     })
 
     return (
@@ -125,7 +183,7 @@ export default function JoinFormModal() {
                                 <Label className="text-base">Personal Information</Label>
                                 {personalInfoInputs.map((data,index)=>(
                                     <Input
-                                        key={index}
+                                        key={"personalInfoInputs"+index}
                                         isRequired={data.required}
                                         type="text"
                                         label={data.name}
@@ -142,13 +200,14 @@ export default function JoinFormModal() {
                                         type="text"
                                         label="Please pick a date you are available for interview:"
                                         className="w-full"
-                                        value={date ? format(date, "PPP") : "Pick a date"}
+                                        value={formData.interviewDate ? format(formData.interviewDate, "PPP") : "Pick a date"}
                                         size="sm"
                                     />
                                     <Button onClick={(e)=>{
                                         e.preventDefault()
-                                        setDateIsOpen((prev)=>{
-                                            return !prev
+                                        setFormData((prev)=>{
+                                            prev.interviewDateIsOpen = !prev.interviewDateIsOpen
+                                            return {...prev}
                                         })
                                     }} isIconOnly  radius="sm" variant="flat" color="primary" className="p-[10px] w-fit h-full">
                                         <CalendarIcon className="w-7 h-7 flex-none"/>
@@ -156,19 +215,23 @@ export default function JoinFormModal() {
                                 </div>
                                 <Calendar
                                     mode="single"
-                                    selected={date}
-                                    fromDate={nextDate}
-                                    className={cn("w-full hidden" , dateIsOpen && "block")}
-                                    onSelect={setDate}
+                                    selected={formData.interviewDate}
+                                    fromDate={addDays(new Date(), 1)}
+                                    className={cn("w-full hidden" , formData.interviewDateIsOpen && "block")}
+                                    onSelect={(e)=>
+                                        setFormData((prev)=>{
+                                        if(e) prev.interviewDate = e
+                                        return {...prev}
+                                    })}
                                     initialFocus
                                 />
                                 {personalInfoCheckboxes.map((data,index)=>(
-                                    <Checkbox key={index} id={"personalInfoCheckbox"+index} radius="full">{data}</Checkbox>
+                                    <Checkbox key={"personalInfoCheckboxes"+index} id={"personalInfoCheckboxes"+index} radius="full">{data}</Checkbox>
                                 ))}
                                 <Label className="text-base">Next of KIN</Label>
                                 {kinInfoInputs.map((data,index)=>(
                                     <Input
-                                        key={index}
+                                        key={"kinInfoInputs"+index}
                                         isRequired={data.required}
                                         type="text"
                                         label={data.name}
@@ -183,6 +246,211 @@ export default function JoinFormModal() {
                                         A full employment history must be detailed beginning with your current employment and covering all reasons for gaps in any given year.
                                     </Label>
                                 </div>
+                                <div className="border-y-2 space-y-2 py-2">
+                                    {formData.employmentHistory.map((data,index)=>(
+                                        <div key={"employmentHistory"+index} className="space-y-2 py-2">
+                                            <div className="flex flex-row items-center space-x-1">
+                                                <Input
+                                                    isReadOnly
+                                                    type="text"
+                                                    label="Date (From-To)"
+                                                    className="w-full"
+                                                    value={formData.employmentHistory[index].date?.from ? (
+                                                        formData.employmentHistory[index].date?.to ? (
+                                                            format(formData.employmentHistory[index].date?.from as Date, "LLL dd, y") + "-" + format(formData.employmentHistory[index].date?.to as Date, "LLL dd, y")
+                                                        ) : (
+                                                            format(formData.employmentHistory[index].date?.from as Date, "LLL dd, y")
+                                                        )
+                                                    ) : "Pick a date"}
+                                                    size="sm"
+                                                />
+                                                <Button onClick={(e)=>{
+                                                    e.preventDefault()
+                                                    setDateIsOpen((prev)=>{
+                                                        return !prev
+                                                    })
+                                                }} isIconOnly  radius="sm" variant="flat" color="primary" className="p-[10px] w-fit h-full">
+                                                    <CalendarIcon className="w-7 h-7 flex-none"/>
+                                                </Button>
+                                            </div>
+                                            <Calendar
+                                                mode="range"
+                                                selected={formData.employmentHistory[index].date}
+                                                className={cn("w-full hidden" , dateIsOpen && "block")}
+                                                onSelect={(e) =>
+                                                    setFormData((prev) => {
+                                                        if (e) prev.employmentHistory[index].date = e
+                                                        return {...prev}
+                                                    })
+                                                }
+                                                initialFocus
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Employer’s name(most recent first)"
+                                                id={"employmentHistory"+index+"employer"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.employer}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.employmentHistory[index].employer = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Position held"
+                                                id={"employmentHistory"+index+"position"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.position}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.employmentHistory[index].position = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Salary & Benefits"
+                                                id={"employmentHistory"+index+"salaryBenefit"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.salaryBenefit}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.employmentHistory[index].salaryBenefit = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="tel"
+                                                label="Reason for leaving"
+                                                id={"employmentHistory"+index+"reasonForLeaving"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.reasonForLeaving}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.employmentHistory[index].reasonForLeaving = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Button className="w-full" onClick={(e) => {
+                                                e.preventDefault();
+                                                setFormData((prev) => {
+                                                    prev.employmentHistory.push({
+                                                        date: {
+                                                            from: new Date(),
+                                                            to: addDays(new Date(), 1),
+                                                        },
+                                                        employer: "",
+                                                        position: "",
+                                                        salaryBenefit: "",
+                                                        reasonForLeaving: "",
+                                                    })
+                                                    return {...prev}
+                                                })
+                                            }}>
+                                                <FaPlus/>
+                                            </Button>
+                                            {index !== 0 && (
+                                                <Button className="w-full" onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setFormData((prev) => {
+                                                        prev.employmentHistory.pop()
+                                                        return {...prev}
+                                                    })
+                                                }}>
+                                                    <FaMinus/>
+                                                </Button>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="flex flex-col">
+                                    <Label className="text-base select-none">Previous Education</Label>
+                                    <Label className="text-[10px] text-gray-500 select-none">
+                                        Original documents as proof of qualification will be required at interview
+                                    </Label>
+                                </div>
+                                <div className="border-y-2 space-y-2 py-2">
+                                    {formData.educationHistory.map((data,index)=>(
+                                        <div key={"educationHistory"+index} className="space-y-2 py-2">
+                                            <Input
+                                                type="text"
+                                                label="Secondary School / College / University"
+                                                id={"educationHistory"+index+"institute"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.institute}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.educationHistory[index].institute = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="number"
+                                                label="Examinations taken"
+                                                id={"educationHistory"+index+"year"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.year as any}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.educationHistory[index].year = Number(e.target.value)
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Result"
+                                                id={"educationHistory"+index+"result"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.result}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.educationHistory[index].result = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Button className="w-full" onClick={(e) => {
+                                                e.preventDefault();
+                                                setFormData((prev) => {
+                                                    prev.educationHistory.push({
+                                                        institute: "",
+                                                        year: new Date().getFullYear(),
+                                                        result: "",
+                                                    })
+                                                    return {...prev}
+                                                })
+                                            }}>
+                                                <FaPlus/>
+                                            </Button>
+                                            {index !== 0 && (
+                                                <Button className="w-full" onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setFormData((prev) => {
+                                                        prev.educationHistory.pop()
+                                                        return {...prev}
+                                                    })
+                                                }}>
+                                                    <FaMinus/>
+                                                </Button>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
                                 <div className="flex flex-col">
                                     <Label className="text-base select-none">Mandatory Training</Label>
                                     <Label className="text-[10px] text-gray-500 select-none">
@@ -190,7 +458,7 @@ export default function JoinFormModal() {
                                     </Label>
                                 </div>
                                 {mandatoryTrainingCheckboxes.map((data,index)=>(
-                                    <Checkbox key={index} id={"personalInfoCheckbox"+index} radius="full">{data}</Checkbox>
+                                    <Checkbox key={"mandatoryTrainingCheckboxes"+index} id={"personalInfoCheckboxes"+index} radius="full">{data}</Checkbox>
                                 ))}
                                 <div className="flex flex-col">
                                     <Label className="text-base select-none">Rehabilitation of offenders ACT 1974 – notice to offenders</Label>
@@ -215,105 +483,210 @@ export default function JoinFormModal() {
                                         Please give the name and address of at least two referees, one of whom must be your present employer or your most recent employer.
                                     </Label>
                                 </div>
-                                {formData.references.map((data,index)=>(
-                                    <div key={"reference"+index} className="border-y-2 space-y-2 py-2">
-                                        <Input
-                                            key={index}
-                                            type="text"
-                                            label="Name"
-                                            id={"reference"+index+"name"}
-                                            className="w-full"
-                                            size="sm"
-                                            value={data.name}
-                                            onChange={(e)=>{
-                                                setFormData((prev)=>{
-                                                    prev.references[index].name = e.target.value
-                                                    return {...prev}
-                                                })
-                                            }}
-                                        />
-                                        <Input
-                                            key={index}
-                                            type="text"
-                                            label="Status"
-                                            id={"reference"+index+"status"}
-                                            className="w-full"
-                                            size="sm"
-                                            value={data.status}
-                                            onChange={(e)=>{
-                                                setFormData((prev)=>{
-                                                    prev.references[index].status = e.target.value
-                                                    return {...prev}
-                                                })
-                                            }}
-                                        />
-                                        <Input
-                                            key={index}
-                                            type="text"
-                                            label="Address"
-                                            id={"reference"+index+"Address"}
-                                            className="w-full"
-                                            size="sm"
-                                            value={data.address}
-                                            onChange={(e)=>{
-                                                setFormData((prev)=>{
-                                                    prev.references[index].address = e.target.value
-                                                    return {...prev}
-                                                })
-                                            }}
-                                        />
-                                        <Input
-                                            key={index}
-                                            type="tel"
-                                            label="Telephone No."
-                                            id={"reference"+index+"telephone"}
-                                            className="w-full"
-                                            size="sm"
-                                            value={data.telephone}
-                                            onChange={(e)=>{
-                                                setFormData((prev)=>{
-                                                    prev.references[index].telephone = e.target.value
-                                                    return {...prev}
-                                                })
-                                            }}
-                                        />
-                                        <Button className="w-full" onClick={(e) => {
-                                            e.preventDefault();
-                                            setFormData((prev) => {
-                                                prev.references.push({
-                                                    name:"",
-                                                    status:"",
-                                                    address:"",
-                                                    telephone:"",
-                                                })
-                                                return {...prev}
-                                            })
-                                            console.log(formData)
-
-                                        }}>
-                                            <FaPlus/>
-                                        </Button>
-                                        {index !== 0 && (
+                                <div className="border-y-2 space-y-2 py-2">
+                                    {formData.references.map((data,index)=>(
+                                        <div key={"reference"+index} className="space-y-2 py-2">
+                                            <Input
+                                                type="text"
+                                                label="Name"
+                                                id={"reference"+index+"name"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.name}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.references[index].name = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Status"
+                                                id={"reference"+index+"status"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.status}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.references[index].status = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="text"
+                                                label="Address"
+                                                id={"reference"+index+"Address"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.address}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.references[index].address = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
+                                            <Input
+                                                type="tel"
+                                                label="Telephone No."
+                                                id={"reference"+index+"telephone"}
+                                                className="w-full"
+                                                size="sm"
+                                                value={data.telephone}
+                                                onChange={(e)=>{
+                                                    setFormData((prev)=>{
+                                                        prev.references[index].telephone = e.target.value
+                                                        return {...prev}
+                                                    })
+                                                }}
+                                            />
                                             <Button className="w-full" onClick={(e) => {
                                                 e.preventDefault();
                                                 setFormData((prev) => {
-                                                    prev.references.pop()
+                                                    prev.references.push({
+                                                        name:"",
+                                                        status:"",
+                                                        address:"",
+                                                        telephone:"",
+                                                    })
                                                     return {...prev}
                                                 })
                                                 console.log(formData)
                                             }}>
-                                                <FaMinus/>
+                                                <FaPlus/>
                                             </Button>
-                                        )}
-                                    </div>
-                                ))}
+                                            {index !== 0 && (
+                                                <Button className="w-full" onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setFormData((prev) => {
+                                                        prev.references.pop()
+                                                        return {...prev}
+                                                    })
+                                                    console.log(formData.references)
+                                                }}>
+                                                    <FaMinus/>
+                                                </Button>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="flex flex-col">
+                                    <Label className="text-base select-none">Equal Opportunities Monitoring</Label>
+                                    <Label className="text-[10px] text-gray-500 select-none">
+                                        This section of the application will be detached and used for monitoring purposes only. Our organisation recognise and actively promote the benefits of a diverse workforce and are committed to treating all employees with dignity and respect regardless of race, gender, disability, age, sexual orientation religion or belief. We welcome applications from all sections of the community.
+                                    </Label>
+                                </div>
+                                <div className="flex flex-row items-center space-x-1">
+                                    <Input
+                                        isReadOnly
+                                        type="text"
+                                        label="Date of Birth:"
+                                        className="w-full"
+                                        value={formData.dob ? format(formData.dob, "PPP") : "Pick a date"}
+                                        size="sm"
+                                    />
+                                    <Button onClick={(e)=>{
+                                        e.preventDefault()
+                                        setFormData((prev)=>{
+                                            prev.dobIsOpen = !prev.dobIsOpen
+                                            return {...prev}
+                                        })
+                                    }} isIconOnly  radius="sm" variant="flat" color="primary" className="p-[10px] w-fit h-full">
+                                        <CalendarIcon className="w-7 h-7 flex-none"/>
+                                    </Button>
+                                </div>
+                                <Calendar
+                                    mode="single"
+                                    selected={formData.dob}
+                                    className={cn("w-full hidden" , formData.dobIsOpen && "block")}
+                                    onSelect={(e)=>
+                                        setFormData((prev)=>{
+                                            if(e) prev.dob = e
+                                            return {...prev}
+                                        })}
+                                    initialFocus
+                                />
+                                <Select
+                                    label="Gender"
+                                    placeholder="Select an option"
+                                    className="w-full"
+                                    size="sm"
+                                >
+                                    {genders.map((data,index)=>(
+                                        <SelectItem key={"gender"+index} value={data} >
+                                            {data}
+                                        </SelectItem>
+                                    ))}
+                                </Select>
+                                <div className="flex flex-col">
+                                    <Label className="text-base select-none">Race Relations (Amendment) 2000</Label>
+                                    <Label className="text-[10px] text-gray-500 select-none">
+                                        I would describe my ethnic origin as (please indicate with a tick
+                                    </Label>
+                                </div>
+                                <Select
+                                    isRequired
+                                    aria-label="Race"
+                                    placeholder="Select an option"
+                                    className="w-full"
+                                    size="sm"
+                                    /*defaultSelectedKeys={formData.race}
+                                    onSelectionChange={(e)=>{
+                                        setFormData((prev)=>{
+                                            prev.race = e
+                                            return {...prev}
+                                        })
+                                    }}*/
+                                >
+                                    {race.map((data,index)=>(
+                                        <SelectSection key={data.group} title={data.group}>
+                                            {data.items.map((itemData,itemIndex)=>{
+                                                return(
+                                                    <SelectItem key={itemData} value={itemData} >
+                                                        {itemData}
+                                                    </SelectItem>
+                                                    )
+                                            })}
+                                        </SelectSection>
+                                    ))}
+                                </Select>
+                                <div className="flex flex-col">
+                                    <Label className="text-base select-none">Employment Equality Regulations 2003I</Label>
+                                    <Label className="text-[10px] text-gray-500 select-none">
+                                        Please select the option which best Please indicate your religion or belief describes your sexuality.
+                                    </Label>
+                                </div>
+                                <Select
+                                    isRequired
+                                    aria-label="Race"
+                                    placeholder="Select an option"
+                                    className="w-full"
+                                    size="sm"
+                                    /*defaultSelectedKeys={[formData.equality as string]}
+                                    onChange={(e)=>{
+                                        setFormData((prev)=>{
+                                            prev.equality = e.target.value
+                                            return {...prev}
+                                        })
+                                    }}*/
+                                >
+                                    {equality.map((data,Index)=>{
+                                        return(
+                                            <SelectItem key={data} value={data} >
+                                                {data}
+                                            </SelectItem>
+                                            )
+                                    })}
+                                </Select>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Close
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
+                                <Button type="submit" color="primary">
+                                    Submit
                                 </Button>
                             </ModalFooter>
                         </form>
