@@ -28,7 +28,7 @@ const servicesCards = [
 
 export default function Home() {
     return (
-        <div>
+        <>
             <HomepageCarousel slides={slides}/>
             <section className="w-full bg-primary-cyan">
                 <div className="container py-12 px-4 md:px-6 mx-auto">
@@ -222,6 +222,6 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }

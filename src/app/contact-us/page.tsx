@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <div className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
         <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
           <Label className="text-4xl font-bold text-center text-white ">Contact us</Label>
@@ -32,43 +32,28 @@ export default function Home() {
             </p>
           </div>
           <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="flex items-center justify-center">
-              <div className="w-16 h-16 bg-[#FEF3C7] dark:bg-[#4B5563] rounded-full flex items-center justify-center text-2xl font-bold">
-                1
-              </div>
-            </div>
             <Card className="bg-[#FEF3C7] dark:bg-[#4B5563]">
               <CardHeader>
-                <CardTitle>Step 1</CardTitle>
+                <CardTitle className="font-bold">Step 1</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-4 border-y py-4">
-                <p className="text-sm/relaxed">Nelion Care will have an initial conversation with you and your loved ones so we can understand your needs.</p>
+              <CardContent className="grid gap-4 border-t-2 border-black py-4 border-dashed">
+                <p className="text-base/relaxed font-semibold">Nelion Care will have an initial conversation with you and your loved ones so we can understand your needs.</p>
               </CardContent>
             </Card>
-            <div className="flex items-center justify-center">
-              <div className="w-16 h-16 bg-[#D1FAE5] dark:bg-[#4B5563] rounded-full flex items-center justify-center text-2xl font-bold">
-                2
-              </div>
-            </div>
             <Card className="bg-[#D1FAE5] dark:bg-[#4B5563]">
               <CardHeader>
-                <CardTitle>Step 2</CardTitle>
+                <CardTitle className="font-bold">Step 2</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-4 border-y py-4">
-                <p className="text-sm/relaxed">We want to know you as an individual.  We will meet with you and your loved ones in person to get to know you, your likes, dislikes and hobbies. We want to  assess your home environment to ensure that the professionals working with you are aware of any potential safety hazards. We then develop a detailed care plan that is  focused on your needs, giving you and your loved ones a peace of mind.</p>
+              <CardContent className="grid gap-4 border-t-2 border-black py-4 border-dashed">
+                <p className="text-base/relaxed font-semibold">We want to know you as an individual.  We will meet with you and your loved ones in person to get to know you, your likes, dislikes and hobbies. We want to  assess your home environment to ensure that the professionals working with you are aware of any potential safety hazards. We then develop a detailed care plan that is  focused on your needs, giving you and your loved ones a peace of mind.</p>
               </CardContent>
             </Card>
-            <div className="flex items-center justify-center">
-              <div className="w-16 h-16 bg-[#BFDBFE] dark:bg-[#4B5563] rounded-full flex items-center justify-center text-2xl font-bold">
-                3
-              </div>
-            </div>
             <Card className="bg-[#BFDBFE] dark:bg-[#4B5563]">
               <CardHeader>
-                <CardTitle>Step 3</CardTitle>
+                <CardTitle className="font-bold">Step 3</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-4 border-y py-4">
-                <p className="text-sm/relaxed">Nelion Care matches our care professionals to your loved one based on their personality and needs. We know interests and needs can change. Our Care Manager conducts regular quality assurance visits to review your loved ones’ needs and adapt their care plan if required.</p>
+              <CardContent className="grid gap-4 border-t-2 border-black py-4 border-dashed">
+                <p className="text-base/relaxed font-semibold">Nelion Care matches our care professionals to your loved one based on their personality and needs. We know interests and needs can change. Our Care Manager conducts regular quality assurance visits to review your loved ones’ needs and adapt their care plan if required.</p>
               </CardContent>
             </Card>
           </div>
@@ -92,7 +77,7 @@ export default function Home() {
             <div className="flex flex-col space-y-1 mt-2">
               <Label className="text-lg">1 Union Street, Long Eaton, NG10 1HH</Label>
               <Label className="text-lg">Email:</Label>
-              <Link href="mailto:care@nelioncare.co.uk" className="-mt-4 text-lg">care@nelioncare.co.uk</Link>
+              <Link href="mailto:info@nelioncare.co.uk" className="-mt-4 text-lg">info@nelioncare.co.uk</Link>
               <Label className="text-lg">Tel:</Label>
               <Link href="tel:+447810037290" className="-mt-4 text-lg">07810037290</Link>
             </div>
@@ -105,6 +90,6 @@ export default function Home() {
         </div>
         <ContactForm subject="Contact Us Form" title="Contact Us" hasSubTitle={true} subTitle="We&apos;d love to hear from you!"/>
       </div>
-    </div>
+    </>
   )
 }

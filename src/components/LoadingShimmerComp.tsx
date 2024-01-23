@@ -6,13 +6,14 @@ interface loadingCompProps {
     loader: "shimmer"|"spinner"
     children: React.ReactNode,
     className?: string
+    rounded?: string
 }
-export default function LoadingComp({loading, loader, children, className}:loadingCompProps) {
+export default function LoadingComp({loading, loader, children, className, rounded}:loadingCompProps) {
     return (
         <div className={className}>
             {loading?
                 <div className="flex items-center justify-center h-full w-full relative">
-                    <div className="flex flex-col items-center justify-center space-y-2 animate-pulse absolute z-50 w-full h-full bg-gray-200/70 select-none">
+                    <div className={"flex flex-col items-center justify-center space-y-2 animate-pulse absolute z-50 w-full h-full bg-gray-200/70 select-none"+` rounded-${rounded}`}>
                         {loader==="spinner" &&
                             <Spinner size="lg"/>
                         }

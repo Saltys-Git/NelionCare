@@ -10,17 +10,19 @@ export const metadata: Metadata = {
 
 export default function VisitingCare() {
   return (
-    <div>
+    <>
         <section className="w-full bg-[url('../../public/images/service1.jpg')] bg-center bg-cover">
-            <div className="container py-12 md:py-24 lg:py-32 w-full h-full px-4 md:px-6 bg-gray-500/80">
-                <div className="flex flex-col items-center space-y-4 text-center">
-                    <div className="space-y-2">
-                        <h1 className="text-3xl text-white font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none animate-fadeInDown">
-                            Visiting Care
-                        </h1>
-                        <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl animate-fadeInUp">
-                            Providing tailored home care services to meet your needs.
-                        </p>
+            <div className="w-full h-full bg-gray-500/80">
+                <div className="py-12 md:py-24 lg:py-32 w-full h-full px-4 md:px-6">
+                    <div className="flex flex-col items-center space-y-4 text-center">
+                        <div className="space-y-2">
+                            <h1 className="text-3xl text-white font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none animate-fadeInDown">
+                                Visiting Care
+                            </h1>
+                            <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl animate-fadeInUp">
+                                Providing tailored home care services to meet your needs.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,6 +134,6 @@ export default function VisitingCare() {
                 </div>
             </div>
         </section>
-    </div>
+    </>
   )
 }

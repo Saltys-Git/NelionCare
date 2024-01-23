@@ -19,7 +19,7 @@ const points = [
 export default function JoinUs() {
 
     return (
-        <div>
+        <>
             <div
                 className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
                 <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
@@ -29,7 +29,7 @@ export default function JoinUs() {
                 </div>
             </div>
             <section className="w-full px-6 py-16 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
-                <div className="grid gap-10 lg:grid-cols-2">
+                <div className="container grid gap-10 lg:grid-cols-2">
                     <Image
                         isBlurred
                         alt="Nelioncare team"
@@ -43,40 +43,42 @@ export default function JoinUs() {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-bold">Why Nelioncare?</h2>
                         <p className="text-gray-600 dark:text-gray-400">
-                            Imagine a career where your compassion becomes your compass, where every smile you spark ignites a star in someone&aposs life. At Nelion Care, we&aposre not just providing care, we&aposre weaving tapestries of hope and well-being, and we invite you to join us as a master weaver.<br/><br/>
-                            Step into the role of our community ambassador, not just an employee, but an architect of joy. We&aposll equip you with the knowledge and support to build bridges of understanding, where empathy is the mortar and kindness the bricks. You&aposll be a master listener, a confidante, a beacon of warmth in the lives of our service users.
-                            Think of it as crafting personalized masterpieces of care, where every interaction is a brushstroke of compassion. We&aposll provide the finest tools – training, resources, and a supportive team that&aposs always there to cheer you on. But the real magic lies in your heart.<br/><br/>
-                            Do you possess the gentle touch of a sunrise, the listening ear of a confidante, and the unwavering spirit of a changemaker? Do you yearn to leave a legacy of love and laughter etched in the lives of others? Then, join us. Here, at Nelion Care, your passion for care will find its perfect canvas, and together, we&aposll paint a world where every life shines.
+                            Imagine a career where your compassion becomes your compass, where every smile you spark ignites a star in someone&apos;s life. At Nelion Care, we&apos;re not just providing care, we&apos;re weaving tapestries of hope and well-being, and we invite you to join us as a master weaver.<br/><br/>
+                            Step into the role of our community ambassador, not just an employee, but an architect of joy. We&apos;ll equip you with the knowledge and support to build bridges of understanding, where empathy is the mortar and kindness the bricks. You&apos;ll be a master listener, a confidante, a beacon of warmth in the lives of our service users.
+                            Think of it as crafting personalized masterpieces of care, where every interaction is a brushstroke of compassion. We&apos;ll provide the finest tools – training, resources, and a supportive team that&apos;s always there to cheer you on. But the real magic lies in your heart.<br/><br/>
+                            Do you possess the gentle touch of a sunrise, the listening ear of a confidante, and the unwavering spirit of a changemaker? Do you yearn to leave a legacy of love and laughter etched in the lives of others? Then, join us. Here, at Nelion Care, your passion for care will find its perfect canvas, and together, we&apos;ll paint a world where every life shines.
                         </p>
                         <JoinFormModal/>
                     </div>
                 </div>
             </section>
-            <section className="container px-6 py-16 bg-gray-100">
-                <h2 className="text-4xl font-bold text-center mb-6">Our Values</h2>
-                <p className="text-lg text-center text-gray-600 dark:text-gray-400 mb-12">
-                    Our values guide us in everything we do and help us to create a supportive and nurturing environment
-                    for our
-                    residents.
-                </p>
-                <div className="grid gap-10 lg:grid-cols-3">
-                    <div className="flex flex-col items-center text-center">
-                        <HeartIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
-                        <h3 className="text-lg font-bold mb-2">Compassion</h3>
-                        <p className="text-gray-600 dark:text-gray-400">We care for our residents with kindness and
-                            empathy.</p>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                        <ShieldCheckIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
-                        <h3 className="text-lg font-bold mb-2">Safety</h3>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            We prioritize the safety and well-being of our residents.
-                        </p>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                        <StarIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
-                        <h3 className="text-lg font-bold mb-2">Excellence</h3>
-                        <p className="text-gray-600 dark:text-gray-400">We strive for excellence in all that we do.</p>
+            <section className="w-full bg-gray-100">
+                <div className="container w-full px-6 py-16 bg-gray-100">
+                    <h2 className="text-4xl font-bold text-center mb-6">Our Values</h2>
+                    <p className="text-lg text-center text-gray-600 dark:text-gray-400 mb-12">
+                        Our values guide us in everything we do and help us to create a supportive and nurturing environment
+                        for our
+                        residents.
+                    </p>
+                    <div className="grid gap-10 lg:grid-cols-3">
+                        <div className="flex flex-col items-center text-center">
+                            <HeartIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
+                            <h3 className="text-lg font-bold mb-2">Compassion</h3>
+                            <p className="text-gray-600 dark:text-gray-400">We care for our residents with kindness and
+                                empathy.</p>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                            <ShieldCheckIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
+                            <h3 className="text-lg font-bold mb-2">Safety</h3>
+                            <p className="text-gray-600 dark:text-gray-400">
+                                We prioritize the safety and well-being of our residents.
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                            <StarIcon className="w-10 h-10 mb-4 text-primary-cyan"/>
+                            <h3 className="text-lg font-bold mb-2">Excellence</h3>
+                            <p className="text-gray-600 dark:text-gray-400">We strive for excellence in all that we do.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -150,6 +152,6 @@ export default function JoinUs() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }

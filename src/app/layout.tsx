@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className+"w-full"}>
       <Provider>
           <NavbarComp/>
-          <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center h-full">
               {children}
           </div>
           <Footer/>

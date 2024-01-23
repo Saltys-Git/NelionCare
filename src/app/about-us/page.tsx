@@ -17,7 +17,7 @@ const missionPoints = [
 
 export default function Home() {
     return (
-        <div>
+        <>
             <section
                 className="h-[150px] w-full flex flex-row items-center justify-center bg-[url('../../public/images/contact-bg.jpg')] bg-center bg-cover">
                 <div className="w-full h-full bg-gray-700/70 flex flex-col justify-center items-center">
@@ -28,7 +28,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="w-full px-6 py-16 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
-                <div className="grid gap-10 md:grid-cols-2">
+                <div className="container grid gap-10 md:grid-cols-2">
                     <div className="mx-auto items-center justify-start flex relative">
                         <Image
                             isZoomed
@@ -54,18 +54,22 @@ export default function Home() {
                 </div>
             </section>
             <section
-                className="h-fit w-full grid md:grid-cols-2 items-center justify-between bg-[url('../../public/images/about3.jpg')] bg-fixed bg-center bg-cover">
-                <div className="md:p-24 p-12 w-full h-full bg-gray-700/80 flex flex-col justify-center items-center">
-                    <Label className="text-4xl font-bold text-center text-white ">Our Mission</Label>
-                    <Separator className="w-[50px] h-[2px] bg-primary-cyan mt-2 mb-2"/>
-                    <p className="text-sm mt-2 text-center text-white">Deliver personalized, compassionate support with unwavering dedication, fueled by the passion of our people and the promise of a brighter future.
-                    </p>
-                </div>
-                <div className="md:p-24 p-12 w-full h-full bg-gray-700/80 flex flex-col justify-center items-center">
-                    <Label className="text-4xl font-bold text-center text-white ">Our Vision</Label>
-                    <Separator className="w-[50px] h-[2px] bg-primary-cyan mt-2 mb-2"/>
-                    <p className="text-sm mt-2 text-center text-white">Weave quality and innovation into every thread of care, empowering individuals to shine with independence.
-                    </p>
+                className="h-fit w-full bg-[url('../../public/images/about3.jpg')] bg-fixed bg-center bg-cover">
+                <div className="w-full h-full bg-gray-700/80 flex flex-col justify-center items-center">
+                    <div className="container grid md:grid-cols-2 items-center justify-between">
+                        <div className="md:p-24 p-12 w-full h-full flex flex-col justify-center items-center">
+                            <Label className="text-4xl font-bold text-center text-white ">Our Mission</Label>
+                            <Separator className="w-[50px] h-[2px] bg-primary-cyan mt-2 mb-2"/>
+                            <p className="text-sm mt-2 text-center text-white">Deliver personalized, compassionate support with unwavering dedication, fueled by the passion of our people and the promise of a brighter future.
+                            </p>
+                        </div>
+                        <div className="md:p-24 p-12 w-full h-full flex flex-col justify-center items-center">
+                            <Label className="text-4xl font-bold text-center text-white ">Our Vision</Label>
+                            <Separator className="w-[50px] h-[2px] bg-primary-cyan mt-2 mb-2"/>
+                            <p className="text-sm mt-2 text-center text-white">Weave quality and innovation into every thread of care, empowering individuals to shine with independence.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-green-200 via-blue-200 to-indigo-200">
@@ -152,73 +156,75 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="container flex flex-col px-6 py-16 items-center bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
-                <Label className="text-4xl font-bold text-center">Why Nelion Care Givers</Label>
-                <Separator className="w-[200px] h-[2px] bg-primary-cyan mb-12 mt-4"/>
-                <div className="grid gap-10 lg:grid-cols-3">
-                    <div className="flex flex-col items-center text-center">
-                        <Image
-                            isBlurred
-                            alt={"Quality at Nelion"}
-                            className="h-24 w-24 mb-4 object-cover rounded-full select-none"
-                            height="300"
-                            src={"/images/service1.jpg"}
-                            style={{
-                                aspectRatio: "300/300",
-                                objectFit: "cover",
-                            }}
-                            width="300"
-                        />
-                        <h3 className="text-lg font-bold mb-2">Quality at Nelion</h3>
-                        <p className="text-gray-600">
-                            At Nelion Care, we weave quality into everything we do. Quality can be seen in the continuous development
-                            of our teams and services we provide.   Quality means always striving to lead the way in the provision of the
-                            care and support we deliver to you. Quality can also be found in the way we take an innovative approach,
-                            finding new and different ways to shape our care and support.
-                        </p>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                        <Image
-                            isBlurred
-                            alt={"Maintaining our standards"}
-                            className="h-24 w-24 mb-4 object-cover rounded-full select-none"
-                            height="300"
-                            src={"/images/service1.jpg"}
-                            style={{
-                                aspectRatio: "300/300",
-                                objectFit: "cover",
-                            }}
-                            width="300"
-                        />
-                        <h3 className="text-lg font-bold mb-2">Maintaining our standards</h3>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            At Nelion Care, our standard of care is extremely important to us.
-                            Our compassionate, highly skilled and dedicated Care team  work together
-                            with you and those who support you to ensure quality and timely care delivery.
-                            We listen to you to understand what is important to you and support you to maintain
-                            it. It is your care so we value your choices.
-                        </p>
-                    </div>
-                    <div className="flex flex-col items-center text-center">
-                        <Image
-                            isBlurred
-                            alt={"Taking a collaborative approach"}
-                            className="h-24 w-24 mb-4 object-cover rounded-full select-none"
-                            height="300"
-                            src={"/images/service1.jpg"}
-                            style={{
-                                aspectRatio: "300/300",
-                                objectFit: "cover",
-                            }}
-                            width="300"
-                        />
-                        <h3 className="text-lg font-bold mb-2">Taking a collaborative approach</h3>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            At Nelion Care, we believe in shaping our care and support around each individual
-                            we support.. We take an inclusive approach when it comes to your care. It is tailored
-                            around you as an individual. We want to empower the people we support to have a voice
-                            in how their care is delivered.
-                        </p>
+            <section className="w-full px-6 py-16 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200">
+                <div className="container flex flex-col items-center ">
+                    <Label className="text-4xl font-bold text-center">Why Nelion Care Givers</Label>
+                    <Separator className="w-[200px] h-[2px] bg-primary-cyan mb-12 mt-4"/>
+                    <div className="grid gap-10 lg:grid-cols-3">
+                        <div className="flex flex-col items-center text-center">
+                            <Image
+                                isBlurred
+                                alt={"Quality at Nelion"}
+                                className="h-24 w-24 mb-4 object-cover rounded-full select-none"
+                                height="300"
+                                src={"/images/service1.jpg"}
+                                style={{
+                                    aspectRatio: "300/300",
+                                    objectFit: "cover",
+                                }}
+                                width="300"
+                            />
+                            <h3 className="text-lg font-bold mb-2">Quality at Nelion</h3>
+                            <p className="text-gray-600">
+                                At Nelion Care, we weave quality into everything we do. Quality can be seen in the continuous development
+                                of our teams and services we provide.   Quality means always striving to lead the way in the provision of the
+                                care and support we deliver to you. Quality can also be found in the way we take an innovative approach,
+                                finding new and different ways to shape our care and support.
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                            <Image
+                                isBlurred
+                                alt={"Maintaining our standards"}
+                                className="h-24 w-24 mb-4 object-cover rounded-full select-none"
+                                height="300"
+                                src={"/images/service1.jpg"}
+                                style={{
+                                    aspectRatio: "300/300",
+                                    objectFit: "cover",
+                                }}
+                                width="300"
+                            />
+                            <h3 className="text-lg font-bold mb-2">Maintaining our standards</h3>
+                            <p className="text-gray-600 dark:text-gray-400">
+                                At Nelion Care, our standard of care is extremely important to us.
+                                Our compassionate, highly skilled and dedicated Care team  work together
+                                with you and those who support you to ensure quality and timely care delivery.
+                                We listen to you to understand what is important to you and support you to maintain
+                                it. It is your care so we value your choices.
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center">
+                            <Image
+                                isBlurred
+                                alt={"Taking a collaborative approach"}
+                                className="h-24 w-24 mb-4 object-cover rounded-full select-none"
+                                height="300"
+                                src={"/images/service1.jpg"}
+                                style={{
+                                    aspectRatio: "300/300",
+                                    objectFit: "cover",
+                                }}
+                                width="300"
+                            />
+                            <h3 className="text-lg font-bold mb-2">Taking a collaborative approach</h3>
+                            <p className="text-gray-600 dark:text-gray-400">
+                                At Nelion Care, we believe in shaping our care and support around each individual
+                                we support.. We take an inclusive approach when it comes to your care. It is tailored
+                                around you as an individual. We want to empower the people we support to have a voice
+                                in how their care is delivered.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -239,6 +245,6 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
